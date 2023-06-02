@@ -1,2 +1,4 @@
-test: test
-eureka.client.service-url.defaultZone: global-value
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
