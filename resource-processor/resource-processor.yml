@@ -1,1 +1,35 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        onReceive-in-0:
+          destination: resource-ids
+          group: resource-processor
+          consumer:
+            max-attempts: 2             # failed messages are delivered to the DLQ after retries are exhausted.
+      rabbit:
+        bindings:
+          onReceive-in-0:
+            consumer:
+              autoBindDlq: true         # set to true to enable DLQ
+              republish-to-dlq: true    # to know the exact exception of the last error; will add detailed exception and exception stack information in the message header
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
 
+server:
+  port: 8090
+
+logging:
+  level:
+    root: info
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 2000
+        readTimeout: 2000
+        loggerLevel: basic
