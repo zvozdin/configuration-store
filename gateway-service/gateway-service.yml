@@ -10,3 +10,14 @@ spring:
           uri: 'lb://song-service'
           predicates:
             - Path=/api/v1/songs/*,/api/v1/songs
+        - id: storage-service
+          uri: 'lb://storage-service'
+          predicates:
+            - Path=/api/v1/storages
+            
+mmanagement:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        
