@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    # TODO: fix mentor comment and move sensitive data(db creds) to AWS Param Store
+    url: jdbc:postgresql://postgres:5432/storage
+    username: postgres
+    password: postgres
+
+server:
+  port: 8085
+  
