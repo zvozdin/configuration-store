@@ -47,6 +47,15 @@ server:
     max-http-form-post-size: 20MB
   port: 8080
 
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+
+# for e2e tests
 services:
   url:
     song-service: http://song-service-app:8081/api/v1/songs
