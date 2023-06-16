@@ -5,7 +5,7 @@ spring:
         - id: resource-service
           uri: 'lb://resource-service'
           predicates:
-            - Path=/api/v1/resources/*,/api/v1/resources
+            - Path=/api/v1/resources/**,/api/v1/resources
         - id: song-service
           uri: 'lb://song-service'
           predicates:
